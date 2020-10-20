@@ -51,7 +51,7 @@ Things you may want to cover:
 | charges_id(配送料の負担)      | integer    | null: false                    |
 | region_id(発送元の地域)       | integer    | null: false                    |
 | days_to_ship_id(発送迄の日数) | integer    | null: false                    |
-| price                       | integer    | null: false                    |
+| price(出品価格)              | integer    | null: false                    |
 | user                        | references | null: false, foreign_key: true |
 
 ### Association
@@ -77,11 +77,11 @@ Things you may want to cover:
 
 | Column                      | Type           | Options                        |
 | ------                      | ----------     | ------------------------------ |
-| postal_cord                 | string         | null: false                    |
-| prefectures_id              | integer        | null: false                    |
-| municipality                | string         | null: false                    |
-| house_number                | string         | null: false                    |
-| building_name               | string         |                                |
+| postal_cord(郵便番号)         | string         | null: false                    |
+| prefectures_id(都道府県)      | integer        | null: false                    |
+| municipality(市区町村)        | string         | null: false                    |
+| house_number(番地)           | string         | null: false                    |
+| building_name(建物名)         | string         |                                |
 | phone_number                | integer        | null: false                    |
 | pay                         | references     | null: false, foreign_key: true |
 
