@@ -30,28 +30,24 @@ Things you may want to cover:
 | nickname             | string     | null: false                    |
 | email                | string     | null: false                    |
 | password             | string     | null: false                    |
-| password_confirmation| string     | null: false                    |
 | first_name           | string     | null: false                    |
 | last_name            | string     | null: false                    |
 | first_name_kana      | string     | null: false                    |
 | last_name_kana       | string     | null: false                    |
-| birthday_year        | integer    | null: false                    |
-| birthday_day         | integer    | null: false                    |
+| birthday             | data       | null: false                    |
 
 ### Association
 - has_many :items
 - has_many :pays
-- has_many :addresses
 
 ## itemsテーブル
 
 | Column                      | Type       | Options                        |
 | ------                      | ---------- | ------------------------------ |
-| item_name                   | string     | null: false                    |
-| item_image                  | string     | null: false                    |
-| item_text                   | text       | null: false                    |
-| item_category               | string     | null: false                    |
-| item_status                 | string     | null: false                    |
+| name                        | string     | null: false                    |
+| text                        | text       | null: false                    |
+| category                    | string     | null: false                    |
+| status                      | string     | null: false                    |
 | shipping_charges(配送料の負担)| string     | null: false                    |
 | region(発送元の地域)          | string     | null: false                    |
 | days_to_ship(発送迄の日数)    | string     | null: false                    |
@@ -76,7 +72,6 @@ Things you may want to cover:
 | cvc_cord                    | integer        | null: false                    |
 | user_id                     | references     | null: false, foreign_key: true |
 | item_id                     | references     | null: false, foreign_key: true |
-| address_id                  | references     | null: false, foreign_key: true |
 
 ### Association
 
@@ -88,17 +83,16 @@ Things you may want to cover:
 
 | Column                      | Type           | Options                        |
 | ------                      | ----------     | ------------------------------ |
-| postal_cord                 | integer        | null: false                    |
-| prefectures                 | string         | null: false                    |
+| postal_cord                 | string         | null: false                    |
+| prefectures_id              | integer        | null: false                    |
 | municipality                | string         | null: false                    |
 | house_number                | string         | null: false                    |
 | building_name               | string         |                                |
 | phone_number                | integer        | null: false                    |
+| pay_id                      | references     | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to: user
-- belongs_to: item
 - belongs_to: pay
 
 
