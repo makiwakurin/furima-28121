@@ -18,20 +18,32 @@ describe User do
     end
 
     context '新規登録がうまくいかないとき' do
-      it "nicknameが空だと登録できない" do
-      end
-      it "nicknameが7文字以上であれば登録できない" do
-      end
-      it "emailが空では登録できない" do
+      it "nicknameとemail、password, first_name,last_name,first_name_kana,last_name_kana,birthdayが空だと登録できない" do
+        @user.nickname = ""
+        @user.email = ""
+        @user.password =""
+        @user.first_name= ""
+        @user.last_name = ""
+        @user.first_name_kana = ""
+        @user.last_name_kana = ""
+        @user.birthday = ""
+        @user.valid?
+        expect(@user.errors.full_messages)
       end
       it "重複したemailが存在する場合登録できない" do
-      end
-      it "passwordが空では登録できない" do
+        @user.save
+        another_user = FactoryBot.build(:user)
+        another_user.email = @user.email
+        another_user.valid?
+        expect(another_user.errors.full_messages)
       end
       it "passwordが5文字以下であれば登録できない" do
-      end
-      it "passwordが存在してもpassword_confirmationが空では登録できない" do
+        @user.password = "00000"
+        @user.password_confirmation = "00000"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
       end
     end
   end
 end
+# bundle exec rspec spec/models/user_spec.rb 
