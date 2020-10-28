@@ -9,12 +9,6 @@ describe User do
       it 'nicknameとemail、password, first_name,last_name,first_name_kana,last_name_kana,birthdayが存在すれば登録できる' do
         expect(@user).to be_valid
       end
-      it 'passwordが6文字以上であれば登録できる' do
-        expect(@user).to be_valid
-      end
-      it 'paswordが半角英数字混合であれば登録できる' do
-        expect(@user).to be_valid
-      end
     end
 
     context '新規登録がうまくいかないとき' do
@@ -79,6 +73,12 @@ describe User do
       it 'passwordは半角英数字混合でなければ登録できない' do
         @user.password = 'aaaaaaaa'
         @user.password_confirmation = 'aaaaaaaa'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password 半角英数字混合で入力して下さい")
+      end
+      it 'パスワードが半角数字のみの時も登録できないこと' do
+        @user.password = '11111111'
+        @user.password_confirmation = '11111111'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password 半角英数字混合で入力して下さい")
       end
