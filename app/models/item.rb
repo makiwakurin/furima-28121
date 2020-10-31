@@ -5,10 +5,14 @@ class Item < ApplicationRecord
   belongs_to_active_hash :charge
   belongs_to_active_hash :region
   belongs_to_active_hash :days_to_ship
-  
+  has_one_attached :image
 
-  validates :name, :text, :category, :status, :charge, :region, :days_to_ship, presence: true
+  with_options presence: true do
+    validates :name, :text, :image, :category, :status, :charge, :region, :days_to_ship
+  end
 
    #選択が「--」の時は保存できないようにする
-  validates :category_id, :status_id, :charges_id, :region_id, :days_to_ship_id, numericality: { other_than: 1 }
+   with_options numericality: { other_than: 1 } do
+     validates :category_id, :status_id, :charge_id, :region_id, :days_to_ship_id
+   end
 end
