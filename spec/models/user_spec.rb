@@ -12,7 +12,6 @@ describe User do
     end
 
     context '新規登録がうまくいかないとき' do
-      
       # email関連のテスト
 
       it 'emailが空だと登録できない' do
@@ -108,7 +107,7 @@ describe User do
       end
 
       # 誕生日関連のテスト
-      
+
       it 'birthdayが空だと登録できない' do
         @user.birthday = ''
         @user.valid?
