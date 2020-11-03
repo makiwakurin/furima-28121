@@ -70,7 +70,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
 
-      # 商品の価格の入力制限に関するテスト
+      # 商品の価格の入力値に関するテスト
 
       it '商品のpriceは半角数字のみでなければ登録できない' do
         @item.price = 'aaaaaa'
@@ -88,6 +88,38 @@ RSpec.describe Item, type: :model do
         @item.price = 10_000_000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be less than 9999999')
+      end
+
+      # プルダウンid選択に関するテスト
+
+      it 'category_id:1の時は登録できない' do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
+      end
+
+      it 'charge_id:1の時は登録できない' do
+        @item.charge_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Charge must be other than 1")
+      end
+
+      it 'status_id:1の時は登録できない' do
+        @item.status_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status must be other than 1")
+      end
+
+      it 'region_id:1の時は登録できない' do
+        @item.region_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Region must be other than 1")
+      end
+
+      it 'days_to_ship_id:1の時は登録できない' do
+        @item. days_to_ship_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Days to ship must be other than 1")
       end
     end
   end
