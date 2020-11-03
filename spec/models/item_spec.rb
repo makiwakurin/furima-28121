@@ -73,7 +73,8 @@ RSpec.describe Item, type: :model do
       it '商品のpriceは半角数字のみでなければ登録できない' do
         @item.price = 'aaaaaa'
         @item.valid?
-        expect(@item.errors.full_messages) # .to include("Price can't be blank")
+        binding.pry
+        expect(@item.errors.full_messages).to include("半角数字で入力して下さい")
       end
     end
   end
