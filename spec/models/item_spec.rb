@@ -13,6 +13,8 @@ RSpec.describe Item, type: :model do
       end
     end
 
+    # 商品情報入力に関するテスト
+
     context '商品出品がうまくいかないとき' do
       it '商品のnameが存在しなければ登録できない' do
         @item.name = nil
@@ -68,24 +70,24 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
 
-      # 商品の価格の入力制限について
+      # 商品の価格の入力制限に関するテスト
 
       it '商品のpriceは半角数字のみでなければ登録できない' do
         @item.price = 'aaaaaa'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price 半角数字で入力して下さい", "Price is not a number")
+        expect(@item.errors.full_messages).to include('Price 半角数字で入力して下さい', 'Price is not a number')
       end
 
       it '商品価格の範囲が、¥300以上でなければ登録できない' do
         @item.price = 100
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be greater than 300")
+        expect(@item.errors.full_messages).to include('Price must be greater than 300')
       end
 
-       it '商品価格の範囲が、¥9,999,999以下でなければ登録できない' do
-        @item.price = 10000000
+      it '商品価格の範囲が、¥9,999,999以下でなければ登録できない' do
+        @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be less than 9999999")
+        expect(@item.errors.full_messages).to include('Price must be less than 9999999')
       end
     end
   end
