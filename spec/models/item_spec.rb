@@ -95,31 +95,31 @@ RSpec.describe Item, type: :model do
       it 'category_id:1の時は登録できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
 
       it 'charge_id:1の時は登録できない' do
         @item.charge_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Charge must be other than 1")
+        expect(@item.errors.full_messages).to include('Charge must be other than 1')
       end
 
       it 'status_id:1の時は登録できない' do
         @item.status_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status must be other than 1")
+        expect(@item.errors.full_messages).to include('Status must be other than 1')
       end
 
       it 'region_id:1の時は登録できない' do
         @item.region_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Region must be other than 1")
+        expect(@item.errors.full_messages).to include('Region must be other than 1')
       end
 
       it 'days_to_ship_id:1の時は登録できない' do
-        @item. days_to_ship_id = 1
+        @item.days_to_ship_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Days to ship must be other than 1")
+        expect(@item.errors.full_messages).to include('Days to ship must be other than 1')
       end
     end
   end
