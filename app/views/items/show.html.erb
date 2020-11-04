@@ -16,10 +16,10 @@
     </div>
     <div class="item-price-box">
       <span class="item-price">
-        ¥ 999,999,999
+        ￥<%= @item.price %>円
       </span>
       <span class="item-postage">
-        (税込) 送料込み
+        <%= @item.charge.name %>
       </span>
     </div>
 
@@ -37,7 +37,6 @@
 
     <%# //ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
     <% end %>
-    
     <div class="item-explain-box">
       <span><%= "商品説明" %></span>
     </div>
