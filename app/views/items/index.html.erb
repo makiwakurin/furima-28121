@@ -131,9 +131,9 @@
       <% @items.each do |item| %>
         <% if item.image != nil %>
       <li class='list'>
-        <%= link_to "#" do %>
+        <%= link_to edit_item_path(item.id) do %>
         <div class='item-img-content'>
-          <%= image_tag item.image if item.image.attached? , class: "item-img" %>
+          <%= image_tag item.image , class: "item-img" %>
 
           <%# 商品が売れていればsold outを表示しましょう %>
           <div class='sold-out'>
@@ -147,7 +147,7 @@
             <%= item.name %>
           </h3>
           <div class='item-price'>
-            <span><%= item.price %>円<br>(税込み)</span><br><%= item.charge.name %>
+            <span><%= item.price %>円<br>(税込み)<br><%= item.charge.name %></span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>
