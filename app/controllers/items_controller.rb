@@ -28,6 +28,13 @@ class ItemsController < ApplicationController
     else
       render :show
     end
+
+    def edit
+
+    end
+
+    def update
+    end
   end
 
   private
