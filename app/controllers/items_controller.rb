@@ -34,6 +34,7 @@ class ItemsController < ApplicationController
     end
 
     def update
+     item = Item.find
     end
   end
 
