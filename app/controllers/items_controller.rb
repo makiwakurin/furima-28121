@@ -28,15 +28,21 @@ class ItemsController < ApplicationController
     else
       render :show
     end
+  end
 
     def edit
-
     end
 
     def update
-     item = Item.find
+      item = Item.find(params[:id])
+      if user_signed_in? && current_user.id == @item.user_id
+      item.update(item_params)
+      redirect_to root_path
+      else
+        render :edit
+      end
     end
-  end
+
 
   private
 
