@@ -1,0 +1,11 @@
+{"authenticity_token"=>"oYIqUGIfr3Kj6qBE89W+eLJqjWTX2zPzXncLODc2sQmJ3m6GqA3P1tjukjT8EQAn/E1tK5eqSG3V76XFCz1kxQ=="
+  "order_address"=>{"hoge"=>""
+                    "postal_cord"=>""
+                    "region_id"=>"1"
+                    "municipality"=>""
+                    "house_number"=>""
+                    "building_name"=>""
+                    "phone_number"=>""}
+  "commit"=>"購入"
+  "item_id"=>"28"
+}
