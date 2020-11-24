@@ -38,7 +38,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
-- has_many :pays
+- has_many :orders
 
 ## itemsテーブル
 
@@ -57,7 +57,7 @@ Things you may want to cover:
 ### Association
 
 - belongs_to: user
-- has_one: pay
+- has_one: order
 
 ## ordersテーブル
 
@@ -86,7 +86,7 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to: pay
+- belongs_to: order
 
 
 
