@@ -1,9 +1,9 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postal_cord, :region_id, :municipality, :house_number, :building_name, :phone_number, :order_id
+  attr_accessor :user_id, :item_id, :postal_cord, :region_id, :municipality, :house_number, :building_name, :phone_number, :order_id, :token
 
   with_options presence: true do
-    validates :postal_cord, :region_id, :municipality, :house_number, :phone_number
+    validates :postal_cord, :region_id, :municipality, :house_number, :phone_number, :token
   end
 
   validates :region_id, numericality: { other_than: 1 }
