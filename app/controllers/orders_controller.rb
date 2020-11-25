@@ -38,6 +38,8 @@ class OrdersController < ApplicationController
   end
 
   def move_to_index
-    redirect_to root_path unless @item.order.nil?
+    if @item.order.nil?
+      redirect_to root_path
+     end
   end
 end
