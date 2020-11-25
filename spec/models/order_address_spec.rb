@@ -69,4 +69,4 @@ RSpec.describe OrderAddress, type: :model do
     end
   end
 end
-# bundle exec rspec
+# bundle exec rspec spec/models/order_address_spec.rb
