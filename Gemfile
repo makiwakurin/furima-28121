@@ -79,3 +79,5 @@ gem 'rails-i18n'
 
 gem 'payjp'
 
+gem "aws-sdk-s3", require: false
+
